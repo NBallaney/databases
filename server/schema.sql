@@ -1,12 +1,26 @@
+DROP DATABASE IF EXISTS chat;
 CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
+CREATE TABLE user (
   /* Describe your table here.*/
+  uid SMALLINT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(40),
+  PRIMARY KEY (uid)
 );
 
-/* Create other tables and define schemas for them here! */
+
+CREATE TABLE messages (
+  /* Describe your table here.*/
+  mid INT NOT NULL AUTO_INCREMENT,
+  uid SMALLINT NOT NULL,
+  body VARCHAR(160) NOT NULL,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (mid),
+  FOREIGN KEY (uid)
+    REFERENCES user(uid)
+);
 
 
 
