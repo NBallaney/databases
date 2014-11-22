@@ -5,7 +5,12 @@ var db = require('../db');
 
 module.exports = {
   messages: {
-    get: function () {}, // a function which produces all the messages
+    get: function (query) {
+      db.query('SELECT * from messages order by' + query.order, function(err, rows, fields) {
+        if (err) throw err;
+      });
+
+    }, // a function which produces all the messages
     post: function () {} // a function which can be used to insert a message into the database
   },
 

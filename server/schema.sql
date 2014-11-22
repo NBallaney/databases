@@ -15,7 +15,8 @@ CREATE TABLE messages (
   /* Describe your table here.*/
   mid INT NOT NULL AUTO_INCREMENT,
   uid SMALLINT NOT NULL,
-  body VARCHAR(160) NOT NULL,
+  text VARCHAR(160) NOT NULL,
+  roomname VARCHAR(20) NOT NULL,
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (mid),
   FOREIGN KEY (uid)
